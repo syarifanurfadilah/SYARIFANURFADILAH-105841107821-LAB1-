@@ -1,7 +1,7 @@
 // // import { StyleSheet, Text, View } from 'react-native'
 // // import React from 'react'
 
-const { View } = require("react-native")
+// const { View } = require("react-native")
 
 // // const App = () => {
 // //   return (
@@ -84,87 +84,83 @@ const { View } = require("react-native")
 // }
 // export default App
 
-import React from "react";
-import{StyleSheet,Text,Image} from 'react-native';
+
+import React from "react"
+import {StyleSheet,Text, Image, View } from "react-native"
 
 
-const App = () =>{
-  return(
-  <View style={{flex:1}}>
-    <View style= {{
-      flex : 1,
-      alignItems : 'center',
-      justifyContent: 'center',
+const App = () => {
+    const ButtonCostum= ({color,text}) => {
+        return (
+    <View style={{
+        backgroundColor: color,
+        width: 100,
+        height: 50,
+        borderRadius: 15,
+        justifyContent:'center',
 
-    }}>
-      <Text style={{
-        fontSize : 50,
-        fontWeight :'bold'
-
-      }}>Mulai</Text>
-      </View>
-
-      <View style={{
-        flex :1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        
       }}>
-        <Image
-         source={require('./shopee-logo.png')}
-         style= {StyleS.Image}
-         /> 
-       </View>
+        <Text style={{
+          textAlign:'center',
+          fontSize:30,
+          color:'white',
+          fontWeight:'bold',
+        }}>{text}</Text>
+        </View>
+  )
+};
+  return (
+    <View style={{flex:1}}>
+        <View style={{
+            flex:1,
+            alignItems:'center',
+            justifyContent:'center'
 
-       <View style={{
-        flex: 1,
+        }}>
+            <Text style={{
+                fontSize:35,
+                fontWeight:'bold'
+
+            }}>welcome</Text>
+    </View>
+
+    <View style={{
+        flex:1,
+        alignItems:'center',
+        justifyContent:'center',
+    }}>
+        <Image source={require('./shopeelogo.png')} style={{
+            width:250,
+            height:250,
+            borderRadius: 10,
+            justifyContent:'center',
+    
+        }}/>
+        
+    </View>
+
+    <View style={{
+        flex:1,
         alignItems:'center',
         justifyContent:'center',
         flexDirection:'row',
-        justifyContent:'space-evenly',
-     }}>
+        justifyContent:'space-evenly'
+    }}>
+        <ButtonCostum color='red' text='masuk'/>
+        <ButtonCostum color='black' text='daftar'/>
+        </View>
+        </View>
+  )
+};
 
-        <View style={{
-          backgroundColor:'red',
-          width: 115,
-          height: 75,
-          borderRadius: 25,
-          justifyContent:'center',
 
-        }}>
-          <Text style={{
-            textAlign:'center',
-            fontSize:25,
-            color:'white',
-            fontWeight:'bold',
-          }}>Masuk </Text>
-          </View>
-
-          <View style={{
-            backgroundColor:'black',
-            width:115,
-            height:75,
-            borderRadius:25,
-            justifyContent:'center',
-         }}>
-            <Text style={{
-              textAlign:'center',
-              fontSize: 25,
-              color:'white',
-              fontWeight:'bold',
-            }}>Daftar
-            </Text>
-          </View>
-      </View>
-    </View>
-  );
-}
-
-const StyleS = StyleSheet.create({
-  Image: {
-    width:300,
-    height:300,
-    resizeMode:'contain',
-  },
-});
-export default App;
+// const StyleS = StyleSheet.create({
+//     image: {
+//         width:300,
+//         height:300,
+//         resizeMode:'contain',
+//     },
+// });
+export default App
+  
+     
