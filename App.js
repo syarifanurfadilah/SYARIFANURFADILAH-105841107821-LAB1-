@@ -85,65 +85,102 @@
 // export default App
 
 
-import React from "react"
-import {StyleSheet,Text, Image, View } from "react-native"
-import ButtonCostum from "./components/button/button";
+// import React from "react"
+// import {StyleSheet,Text, Image, View } from "react-native"
+// import ButtonCostum from "./components/button/button";
 
 
-const App = () => {
+// const App = () => {
     
-  return (
-    <View style={{flex:1}}>
-        <View style={{
-            flex:1,
-            alignItems:'center',
-            justifyContent:'center'
+//   return (
+//     <View style={{flex:1}}>
+//         <View style={{
+//             flex:1,
+//             alignItems:'center',
+//             justifyContent:'center'
 
-        }}>
-            <Text style={{
-                fontSize:35,
-                fontWeight:'bold'
+//         }}>
+//             <Text style={{
+//                 fontSize:35,
+//                 fontWeight:'bold'
 
-            }}>welcome</Text>
-    </View>
+//             }}>welcome</Text>
+//     </View>
 
-    <View style={{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-    }}>
-        <Image source={require('./shopeelogo.png')} style={{
-            width:250,
-            height:250,
-            borderRadius: 10,
-            justifyContent:'center',
+//     <View style={{
+//         flex:1,
+//         alignItems:'center',
+//         justifyContent:'center',
+//     }}>
+//         <Image source={require('./shopeelogo.png')} style={{
+//             width:250,
+//             height:250,
+//             borderRadius: 10,
+//             justifyContent:'center',
     
-        }}/>
+//         }}/>
         
-    </View>
+//     </View>
 
-    <View style={{
-        flex:1,
-        alignItems:'center',
-        justifyContent:'center',
-        flexDirection:'row',
-        justifyContent:'space-evenly'
-    }}>
-        <ButtonCostum color='red' text='masuk'/>
-        <ButtonCostum color='black' text='daftar'/>
-        </View>
-        </View>
-  )
-};
+//     <View style={{
+//         flex:1,
+//         alignItems:'center',
+//         justifyContent:'center',
+//         flexDirection:'row',
+//         justifyContent:'space-evenly'
+//     }}>
+//         <ButtonCostum color='red' text='masuk'/>
+//         <ButtonCostum color='black' text='daftar'/>
+//         </View>
+//         </View>
+//   )
+// };
 
 
-// const StyleS = StyleSheet.create({
-//     image: {
-//         width:300,
-//         height:300,
-//         resizeMode:'contain',
-//     },
-// });
-export default App
+// // const StyleS = StyleSheet.create({
+// //     image: {
+// //         width:300,
+// //         height:300,
+// //         resizeMode:'contain',
+// //     },
+// // });
+// export default App
   
-     
+import { Text,View,TextInput } from "react-native";
+import React from "react";
+
+const App =() =>{
+const TextInputCustom =({name, color})=>{
+    return(
+         <TextInput
+            placeholder={`masukan ${name}`}
+            style={{
+                height:40,
+                width:200,
+                borderColor:'tomato',
+                borderWidth: 1,
+                borderRadius: 10,
+                margin : 10,
+                padding:10,
+                color : color,
+                paddingLeft:10
+            }}
+        />
+    )
+}
+return(
+    <View style={{
+        flex: 1,
+        justifyContent:'center',
+        alignItems:'center',
+    }}>
+        <Text Style={{fontsize:20, fontweigth:'bold'}}>
+        from login
+        </Text>
+        <TextInputCustom name="Username"color="black"></TextInputCustom>
+        <TextInputCustom name="Email"color="black"></TextInputCustom>
+        <TextInputCustom name="password"color="black"></TextInputCustom>
+    </View>
+)
+}
+export default App
