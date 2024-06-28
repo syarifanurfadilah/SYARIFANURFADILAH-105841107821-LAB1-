@@ -3,7 +3,7 @@ import React from "react"
 import {StyleSheet,Text, Image, View } from "react-native"
 const ButtonCostum= ({color,text}) => {
     return (
-<View style={{
+    <View style={{
     backgroundColor: color,
     width: 100,
     height: 50,
