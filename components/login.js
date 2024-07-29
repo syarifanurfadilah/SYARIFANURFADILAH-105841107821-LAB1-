@@ -9,25 +9,24 @@ const App=() =>{
             <View style = {{
                 flexbox:1,
                 justifyContent:'flex-end',
-                justifyContent:'space-between',
                 height:140
             }}>
                 <Text style={{
-                    fontWeight:'bold',
+                    fontFamily:'Metropolis-Medium.otf',
                     marginLeft:'40'
                 }}>
                     11:06
                 </Text>
                 <Text style={{
                     fontSize:45,
-                    fontWeight:'bold',
+                    fontFamily:'Metropolis-Bold.otf',
                     marginLeft:20,
                 }}>
                     {'<'}
                 </Text>
                 <Text style={{
                     fontSize:30,
-                    fontWeight:'bold',
+                    fontFamily:'Metropolis-Bold.otf',
                     marginLeft:25
                 }}>
                     login
@@ -44,7 +43,7 @@ const App=() =>{
                 <TextInputCustom name="Password"/>
                 <Text style={{
                     fontSize:14,
-                    fontWeight:'bold',
+                    fontFamily:'Metropolis-Medium.otf',
                     marginTop:10,
                     marginBottom:30,
                     textAlign:'right',
@@ -60,7 +59,7 @@ const App=() =>{
                 justifyContent:'flex-start',
             }}>
                 <Text style={{
-                    fontWeight:'bold',
+                    fontFamily:'Metropolis-Medium.otf',
                     marginTop:100
                 }}>
                     Or sign up with social account
@@ -98,4 +97,4 @@ const App=() =>{
         </View>
     )
 }
-export default App
+export default App 
