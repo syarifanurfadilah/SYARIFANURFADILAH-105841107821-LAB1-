@@ -1,24 +1,30 @@
+// components/Button/Button.js
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-import React from "react"
-import {StyleSheet,Text, Image, View } from "react-native"
-const ButtonCostum= ({color,text}) => {
+const ButtonCostum = ({ text, color, borderRadius, onPress }) => {
     return (
-    <View style={{
-    backgroundColor: color,
-    width: 100,
-    height: 50,
-    borderRadius: 15,
-    justifyContent:'center',
-
-  }}>
-    <Text style={{
-      textAlign:'center',
-      fontSize:30,
-      color:'white',
-      fontWeight:'bold',
-    }}>{text}</Text>
-    </View>
-)
+        <TouchableOpacity 
+            style={[styles.button, { backgroundColor: color, borderRadius: borderRadius }]} 
+            onPress={onPress}
+        >
+            <Text style={styles.buttonText}>{text}</Text>
+        </TouchableOpacity>
+    );
 };
+
+const styles = StyleSheet.create({
+    button: {
+        width: '100%',
+        height: 50,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: 'white',
+        fontWeight: 'bold',
+        fontSize: 16,
+    },
+});
 
 export default ButtonCostum;
