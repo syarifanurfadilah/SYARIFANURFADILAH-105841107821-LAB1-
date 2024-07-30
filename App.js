@@ -1,28 +1,77 @@
 import React from "react";
-import {useFonts} from 'expo-font';
-import { Text, View } from 'react-native';
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+
+const stack = createStackNavigator();
+function LoginScreen({navigation}) {
+    return (
+        <View style={styles.container}>
+            <Text style={styles.header}>Login</Text>
+            <TextInput placeholder="Nama" style={styles.input}/>
+            <TextInput placeholder="Email" style={styles.input}/>
+            <TextInput placeholder="Password" secureTextEntry style={styles.input}/>
+            <Button title="Siap Punya Akun?" onPress={() => navigation.navigate('SignIn')}/>
+        </View>
+    );
+}
+
+function SignInScreen({ navigation}) {
+    return (
+        <View style={styles.container}>
+            <Text style={styles.header}>Sign In</Text>
+            <TextInput placeholder="Email" style={styles.input}/>
+            <TextInput placeholder="Password" secureTextEntry style={styles.input}/>
+            <Button title="Sign In" onPress={() => alert('Signed In')}/>
+            <Button title="Lupa Password?" onPress={() => navigation.navigate('ForgotPassword')}/>
+        </View>
+    );
+}
+
+function ForgotPasswordScreen(){
+    return (
+        <View style={styles.container}>
+            <Text style={styles.header}>Lupa password</Text>
+            <TextInput placeholder="Masukkan Email" style={styles.input}/>
+            <Button title="Reset Password" onPress={() => alert('Password Reset Link Sent')}/>
+        </View>
+    );
+}
 
 export default function App() {
-    const [dapatFont]= useFonts({
-        'MetroBlack': require('./assets/fonts/Metropolis-Black.otf'),
-        'MetroBold': require('./assets/fonts/Metropolis-Bold.otf'),
-        'MetroLight': require('./assets/fonts/Metropolis-Light.otf'),
-        'MetroMedium': require('./assets/fonts/Metropolis-Medium.otf'),
-        'MetroSemiBold': require('./assets/fonts/Metropolis-SemiBold.otf'),
-     });
+    return (
+        <NavigationContainer>
+            <stack.Navigator initialRouteName="Login">
+                <stack.Screen name="Login" component={LoginScreen}/>
+                <stack.Screen name="SignIn" component={SignInScreen}/>
+                <stack.Screen name="ForgotPassword" component={ForgotPasswordScreen}/>
+            </stack.Navigator>
+        </NavigationContainer>
+    );
+}
 
-     if (!dapatFont){
-        return<Text>Font tidak ditemukan</Text>;
-     }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        padding : 16,
+        backgroundColor: '#ffc0cb', // warna pink
+    },
+    header: {
+        fontSize: 24,
+        marginBottom: 16,
+        textAlign: 'center',
+    },
+    input:{
+        height: 40,
+        borderColor: '#3c784d',// warna hijau tua
+        borderWidth: 1,
+        borderRadius: 14,
+        marginBottom: 12,
+        paddingHorizontal: 8,
+        backgroundColor: ' #fff',
 
-     return (
-        <View style= {{ flex:1, justifyContent: "center", alignItems: "center"}}>
-           <Text style= {{ fontFamily: 'MetroBlack'}}>Font Metropolis Black</Text>
-           <Text style= {{ fontFamily: 'MetroBold'}}>Font Metropolis Bold</Text>
-           <Text style= {{ fontFamily: 'MetroLight'}}>Font Metropolis Light</Text>
-           <Text style= {{ fontFamily: 'MetroMedium'}}>Font Metropolis Medium</Text>
-           <Text style= {{ fontFamily: 'MetroSemiBold'}}>Font Metropolis SemiBold</Text>
-           <Text>Font Biasa</Text>
-        </View>
-     );
-    }
+
+    },
+});
+
