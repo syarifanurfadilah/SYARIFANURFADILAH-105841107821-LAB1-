@@ -24,7 +24,6 @@ const App = ({navigation}) => {
             fontWeight : 'bold',
             marginLeft : 20
           }}>
-            {'<'}
           </Text>
           </TouchableOpacity>
           <Text style ={{

@@ -24,7 +24,6 @@ const App = ({navigation}) => {
             fontWeight : 'bold',
             marginLeft : 20
           }}>
-            {'<'}
           </Text>
           </TouchableOpacity>
           <Text style ={{
@@ -55,7 +54,7 @@ const App = ({navigation}) => {
             Forgot your Password?
             </Text>
             </TouchableOpacity>
-        <ButtonCostum text = "Login" color= 'red' borderRadius= {30} />
+        <ButtonCostum text = "Login" color= 'red' borderRadius= {30} onPress={() => navigation.navigate('Home')} />
 
       </View>
 

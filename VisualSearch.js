@@ -1,50 +1,75 @@
-import {Text, View, Image, TouchableOpacity} from 'react-native'
-import React from 'react'
-import ButtonCostum from './Component/Button/Button'
 
-const App = () => {
-  return(
-    <View style = {{flex : 1}}>
-      <View style = {{
-        flexbox : 1,
-        flexDirection : 'row',
-        alignItems : 'center',
-        marginTop : 50,
-        height : 50
-      }}>
-        <Text style={{
-          alignItems : 'flex-start',
-          fontSize : 30,
-          marginLeft : 20,
-          fontWeight : 'bold'
-        }}>{'<'}</Text>
-        <View style={{ flex: 1, alignItems: 'center' }}>
-          <Text style={{
-            fontSize: 24,
-            fontWeight: 'bold',
-          }}>Visual Search</Text>
-        </View>
+import React from 'react';
+import { View, Text, TouchableOpacity, ImageBackground, StyleSheet } from 'react-native';
+
+const visualSearch = () => {
+  return (
+    <ImageBackground
+      source={require('./assets/sendalputih.jpg')}  
+      style={styles.backgroundImage}
+    >
+      <View style={styles.overlay} />
+      <View style={styles.container}>
+        <Text style={styles.title}>Search for an outfit by taking a photo or uploading an image</Text>
+        <TouchableOpacity style={styles.takePhotoButton}>
+          <Text style={styles.buttonText}>TAKE A PHOTO</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.uploadImageButton}>
+          <Text style={styles.uploadButtonText}>UPLOAD AN IMAGE</Text>
+        </TouchableOpacity>
       </View>
+    </ImageBackground>
+  );
+};
 
-      <View style ={{
-        flex : 1,
-        backgroundColor : 'gray',
-        alignItems : 'center',
-        justifyContent : 'center',
-      }}>
-        <Text style ={{
-          fontSize : 50,
-          marginLeft : 30,
-          marginRight : 30,
-          marginBottom : 30,
-        }}>Search for an outfit by taking a photo or uploading an image</Text>
-        <ButtonCostum text = "TAKE A PHOTO" color= 'red' borderRadius= {30} style={{}}/>
-        <ButtonCostum text = "UPLOAD AN IMAGE" color= 'green' borderRadius= {30} />
+const styles = StyleSheet.create({
+  backgroundImage: {
+    flex: 1,
+    resizeMode: 'cover',
+    justifyContent: 'center',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(0, 0, 0, 0.3)', 
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#fff',
+    textAlign: 'center',
+    marginBottom: 40,
+  },
+  takePhotoButton: {
+    backgroundColor: 'blue', 
+    paddingVertical: 15,
+    paddingHorizontal: 70,
+    borderRadius: 50,
+    marginBottom: 20,
+  },
+  uploadImageButton: {
+    backgroundColor: 'transparent',
+    borderColor: '#FFFFFF',
+    borderWidth: 2,
+    paddingVertical: 15,
+    paddingHorizontal: 70,
+    borderRadius: 50,
+  },
+  buttonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  uploadButtonText: {
+    color: '#FFFFFF',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
 
-
-      </View>
-
-    </View>
-  )
-}
-export default App
+export default visualSearch;
